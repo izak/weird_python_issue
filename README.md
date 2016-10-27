@@ -23,4 +23,10 @@ But if you import pkg_resources first, no problem:
     >>> import pkg_resources
     >>> import ns.two
 
-This is a small project to help debug this issue.
+Notice also that any entry_point defined script has no problem finding an
+import because pkg_resources is involved in finding entry points:
+
+    venv/bin/pip install helloworld/
+    venv/bin/helloworld
+
+This succeeds without failure even though helloworld imports ns.two.
